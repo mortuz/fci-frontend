@@ -1,0 +1,223 @@
+{% extends 'templates/app.twig' %}
+{% block content %}
+  <header class="">
+    <div class="jumbotron jumbotron-fluid full-header">
+      <div class="container">
+        <h1 class="display-5 text-primary">We value your money</h1>
+        <p class="lead">COME | PLAN | GROW</p>
+      </div>      
+    </div>
+  </header>
+
+  <section class="section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <p class="text-uppercase text-primary lead">Flip coin investment</p>
+          <p>Flip Coin Investments (FCI) is a first of its kind Financial Consultant service provider based out of Bangalore which aims at providing personalized, innovative and profitable Financial Solutions for our Clients who have dynamic needs with their investments. We personally focus on Wealth Management, Portfolio Management and Financial Planning. We believe in quality and ensure that our Clients are provided with all possible option to invest with confidence. Our aim is to progress with our customers to fulfill their financial goals.</p>
+          <p>Flip Coin Investments has a team of qualified professionals which include certified financial planners and investment advisers. We are distinct by our commitment in delivering excellent services, always of the highest quality to our clients.</p>
+        </div>
+        <div class="col-md-5">
+          <img src="./images/man2.png" class="d-none d-md-block" alt="man2">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-lighter py-5">
+    <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h5 class="heading text-primary my-5">FCI Advantages</h5>
+      </div>
+    </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <img src="./images/integrated.png" class="mb-4 feature-image" alt="Money bag">
+          <h5 class="text-primary">Integrated and Transparent Services</h5>
+          <p>We value integrity and transparency in clients' transactions and provide the best value for money to our clients. Our dedicated relationship managers are trained to provide excellent services and complete satisfaction to all their clients</p>
+        </div>
+
+        <div class="col-md-4">
+          <img src="./images/umbrella.png" class="mb-4 feature-image" alt="Money bag">
+          <h5 class="text-primary">All services under one umbrella</h5>
+          <p>We are offering wide range of specialized and customized services in Stock, Futures & Options, IPO & Mutual Fund Distribution, Life / Health / General Insurance, Financial Planning, Portfolio Management, Tax advisory etc.</p>
+        </div>
+
+        <div class="col-md-4">
+          <img src="./images/accurate_and_timely_research.png" class="mb-4 feature-image" alt="Money bag">
+          <h5 class="text-primary">Accurate and timely research</h5>
+          <p>We are always endeavored to provide timely research based advice to our clients. Our research team comprises of experienced Fundamental, Technical and Derivative Strategies analysts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section py-5" id="ticker">
+    <div class="container">
+      <div class="row">
+      <div class="col-md-12 text-center"><h5 class="text-uppercase text-primary">most active stocks</h5></div>
+        <div class="col-md-12">
+
+          <table class="table table-responsive no-lines mt-3">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Last price</th>
+                <th>% Chg</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody class="ticker-body">
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# global market #}
+  <section class="section py-2" id="globalMarket">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="nav nav-justified js-marget-nav"></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# market section #}
+  {# <section class="section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+
+         
+
+        </div>
+        <div class="col-md-6">
+        </div>
+      </div>
+    </div>
+  </section> #}
+
+  {# news and tips #}
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead text-primary text-uppercase">Today's news</p>
+          <div class="news-area"></div>
+        </div>
+        <div class="col-md-6">
+        <h5 class="mb-4 text-uppercase text-primary">Today's market</h5>
+          <nav class="nav nav-pills gain-loss-switch nav-justified">
+            <li class="nav-item">
+              <a href="#" data-action="topGainers" class="nav-link active text-capitalize" data-text="gain">Top Gainers</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" data-action="topLosers" class="nav-link text-capitalize" data-text="loss">Top Losers</a>
+            </li>
+          </nav>
+
+          {# <nav class="nav nav-pills my-3">
+            <li class="nav-item">
+              <a href="#" class="nav-link active">NSE</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">BSE</a>
+            </li>
+          </nav> #}
+
+          <table class="table no-lines mt-3">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Current</th>
+                <th class="gain-loss-status">Gain</th>
+              </tr>
+            </thead>
+            <tbody class="loss-gain">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-5 section bg-lighter">
+    <div class="container text-center">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h5 class="text-primary">Our services</h5>
+      </div>
+    </div>
+
+      <div class="row">
+        <div class="col-md-4 my-4">
+          <img src="./images/wealth_management.png" class="service-img" alt="Wealth">
+          <h5 class="my-3 text-primary">Wealth Management</h5>
+        </div>
+        
+        <div class="col-md-4 my-4">
+          <img src="./images/portfolio_management.png" class="service-img" alt="portfolio_management">
+          <h5 class="my-3 text-primary">Portfolio Management</h5>
+        </div>
+        
+        <div class="col-md-4 my-4">
+          <img src="./images/financial_planning.png" class="service-img" alt="financial_planning">
+          <h5 class="my-3 text-primary">Financial Planning</h5>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-4 offset-md-2 my-4">
+          <img src="./images/tax_planning.png" class="service-img" alt="tax_planning">
+          <h5 class="my-3 text-primary">Tax Planning</h5>
+        </div>
+        <div class="col-md-4 my-4">
+           <img src="./images/stock_trading.png" class="service-img" alt="stock trading">
+          <h5 class="my-3 text-primary">Stock Trading</h5>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="register" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 text-center">
+          <p class="text-primary text-uppercase lead">The  key to great investments is here</p>
+          <p>Need more details? Register here.</p>
+
+          <div class="input-group register-group">
+            <input type="text" name="search" class="form-control search" id="search" placeholder="Enter you email address">
+            <div class="input-group-append">
+              <span class="input-group-text">REGISTER</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+{% endblock %}

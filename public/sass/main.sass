@@ -1,0 +1,162 @@
+@import "overrides"
+@import "../bootstrap/scss/bootstrap"
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700')
+
+body
+  font-family: 'Roboto', sans-serif
+  color: map-get($theme-colors, 'grey')
+
+p
+  color: map-get($theme-colors, 'grey')
+
+.navbar-brand img
+  max-width: 100%
+  height: 75px
+  max-height: 100%
+
+.fa-1-4x
+  font-size: 1.4em
+
+.full-header
+  background: url('../images/splash.jpg') no-repeat center center
+  background-size: cover
+  height: 400px
+
+.feature-image
+  width: 150px
+  height: 150px
+#mainNav
+  .nav-link
+    color: #e9ecef
+    padding-left: 2rem
+    padding-right: 2rem
+    transition: all 0.32s ease-in
+    &.active
+      color: #ffffff
+    &:hover
+      background-color: rgba(255, 255, 255, 0.1)
+
+.top-heading
+  .nav-link
+    color: map-get($theme-colors, 'grey')
+    &:hover
+      color: #000000
+    .fa
+      color: map-get($theme-colors, 'primary')
+  #search, .input-group-text
+    background-color: map-get($theme-colors, 'primary')
+    color: #ffffff
+    border-radius: 0
+    border-color: map-get($theme-colors, 'primary')
+    &::placeholder
+      color: #fff
+    &::-ms-input-placeholder
+      color: #fff
+    &:-ms-input-placeholder
+      color: #fff
+.btn-login, .btn-signup
+  border-radius: 0px
+  padding: 0.33rem 1rem
+.btn-login
+  border: 1px solid map-get($theme-colors, 'grey')
+  background: #ffffff
+  margin-right: 0.3rem
+.btn-signup
+  &.nav-link
+    background-color: map-get($theme-colors, 'primary')
+    color: #ffffff
+    margin-left: 0.3rem
+
+.gain-loss-switch
+  &.nav-pills
+    .nav-link
+      border: 1px solid map-get($theme-colors, 'primary')
+      border-radius: 0
+.no-lines
+  td
+    border-top: 0
+  tr
+    &:last-child
+      td
+        border-bottom: 1px solid #dee2e6
+
+.register-group
+  .form-control
+    border-radius: 0
+    border: 1px solid map-get($theme-colors, 'primary')
+  .input-group-text
+    border-radius: 0
+    border: 1px solid map-get($theme-colors, 'primary')
+    background-color: map-get($theme-colors, 'primary')
+    color: #fff
+    cursor: pointer
+
+.bg-lighter
+  background-color: #f1f1f1
+
+.text-white
+  color: #ffffff
+.footer-dark
+  a
+    color: #fff
+  &:hoiver
+    text-decoration: underline
+
+.form-control
+  &.input-field
+    background-color: #eaeaea
+    border-color: transparent
+    border-radius: 0
+
+.btn-submit
+  border-radius: 0
+  padding-left: 1.5rem
+  padding-right: 1.5rem
+
+.opacity-0
+  opacity: 0
+#map
+  height: 275px
+img
+  max-width: 100%
+.service-img
+  height: 75px
+  width: 75px
+.gm-table
+  color: #fff
+  flex-grow: 1
+  td
+    padding: 20px
+.gm-table.odd
+  background-color: map-get($theme-colors, 'primary')
+.gm-table.even
+  background-color: lighten(map-get($theme-colors, 'primary'), 5%)
+
+.live-nav
+  flex-direction: row
+  li
+    padding-left: 12px
+    padding-right: 12px
+#footer
+  .lead
+    font-weight: normal !important
+
+.mobile-social
+  position: absolute
+  top: 31px
+  right: 15px
+
+.mobile-bottom-nav
+  list-style-type: none
+  width: 100%
+  padding: 0
+  margin: 0
+  li
+    display: inline
+    a
+      width: 49%
+      margin: 0
+      &.btn-signup
+        background-color: #3353a5
+        color: #ffffff

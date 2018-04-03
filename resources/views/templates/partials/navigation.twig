@@ -1,0 +1,149 @@
+<header class="top-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2">
+        <a class="navbar-brand" href="#"><img src="./images/logo.png" alt="flip coin investment"></a> 
+
+        {# mobile social #}
+        <ul class="nav justify-content-end d-lg-none mobile-social">
+          <li class="nav-item d-inline mr-3">
+            <a href="#" class="d-inline">
+              <i class="fa fa-facebook-square fa-1-4x"></i>
+            </a>
+          </li>
+
+          <li class="nav-item d-inline">
+            <a href="#" class="d-inline">
+              <i class="fa fa-linkedin-square fa-1-4x"></i>
+            </a>
+          </li>
+        </ul>  
+      </div>
+      <div class="col-lg-5 d-none d-lg-block">
+
+        <ul class="nav">
+
+          <li class="nav-item">
+            <a href="{{ path_for('mutual.fund') }}" class="nav-link">Mutual Funds</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ path_for('insurance') }}" class="nav-link">Insurance</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ path_for('finarc.institution') }}" class="nav-link">Finarc Institute</a>
+          </li>
+
+        </ul>
+
+        <div class="input-group search-group">
+          <input type="text" name="search" class="form-control search" id="search" placeholder="What are you looking for?">
+          <div class="input-group-append">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
+          </div>
+        </div>
+        
+
+      </div> <!--/.col-md-5-->
+
+      <div class="col-lg-5 d-none d-lg-block">
+
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fa fa-facebook-square fa-1-4x"></i>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fa fa-linkedin-square fa-1-4x"></i>
+            </a>
+          </li>
+
+        </ul>
+
+        <ul class="nav nav-justified">
+          <li class="nav-item">
+            <a href="#" class="nav-link btn btn-login">Log in</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="tel:7406132221" class="nav-link btn btn-signup">Call us</a>
+          </li>
+
+        </ul>
+       
+      
+      </div><!--/.col-md-5-->
+    </div><!--/.row-->
+  </div><!--/.container-->
+</header>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="{{path_for('home')}}" class="nav-link">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{{path_for('about')}}" class="nav-link">About us</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{{path_for('services')}}" class="nav-link">Services</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/blog" class="nav-link" target="_blank">Blog</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{{path_for('contact')}}" class="nav-link">Contact us</a>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav d-md-none d-lg-none">
+
+        <li class="nav-item">
+          <a href="{{ path_for('mutual.fund') }}" class="nav-link">Mutual Funds</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{{ path_for('insurance') }}" class="nav-link">Insurance</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{{ path_for('finarc.institution') }}" class="nav-link">Finarc Institute</a>
+        </li>
+
+      </ul>
+    </div>
+   
+  </div>
+  
+</nav>
+
+
+
+{# bottom nav bar #}
+<nav class="navbar fixed-bottom navbar-light bg-light-grey d-none d-md-block">
+  <ul class="navbar-nav live-nav js-bottom-nav">
+  </ul>
+</nav>
+
+<nav class="navbar fixed-bottom navbar-light bg-light-grey d-lg-none d-md-none">
+  <div class="container-fluid">
+  <ul class="mobile-bottom-nav">
+    <li><a href="#" class="btn btn-login">Login</a></li>
+    <li><a href="tel:7406132221" class="btn btn-signup">Call us</a></li>
+  </ul>
+    
+  </div>
+</nav>
