@@ -21,9 +21,9 @@ $app->get('/mutual-fund', function ($request, $response) {
   return $this->view->render($response, 'mutualFund.twig');
 })->setName('mutual.fund');
 
-$app->get('/finarc-institution', function ($request, $response) {
-  return $this->view->render($response, 'finarc.twig');
-})->setName('finarc.institution');
+// $app->get('/finarc-institution', function ($request, $response) {
+//   return $this->view->render($response, 'finarc.twig');
+// })->setName('finarc.institution');
 
 $app->get('/insurance', function ($request, $response) {
   return $this->view->render($response, 'insurance.twig');

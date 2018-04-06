@@ -133,8 +133,8 @@
           html += `
             <table class="gm-table ${i%2 == 0 ? "even": "odd"}">
               <tr>
-                <td valign="middle">${name} <br> ${latestPrice} <span style="color: ${color}; margin-left: 15px">${color == "#009f00" ? "<i class='fa fa-caret-up fa-2x'></i>" : "<i class='fa fa-caret-down fa-2x'></i>"}</span><br>
-                <span style="color: ${color}">${change}(${(parseInt(change)/parseInt(latestPrice)*100).toFixed(2)}%)
+                <td valign="middle">${name} <br> ${latestPrice} <span style="color: ${color == '#cc0000' ? '#ff4136' : color }; margin-left: 15px">${color == "#009f00" ? "<i class='fa fa-caret-up fa-2x'></i>" : "<i class='fa fa-caret-down fa-2x'></i>"}</span><br>
+                <span style="color: ${color == '#cc0000' ? '#ff4136' : color }">${change}(${(parseInt(change)/parseInt(latestPrice)*100).toFixed(2)}%)
                 </span>
               </td>
               </tr>
