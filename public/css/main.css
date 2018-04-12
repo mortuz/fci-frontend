@@ -6708,6 +6708,17 @@ p {
   background: url("../images/splash.jpg") no-repeat center center;
   background-size: cover;
   height: 400px; }
+  .full-header.about-splash {
+    background-image: url("../images/about-splash.jpg"); }
+  .full-header.services-splash {
+    background-image: url("../images/services-splash.jpg"); }
+  .full-header.contact-splash {
+    background-image: url("../images/contact-splash.jpg"); }
+  .full-header.mutual-fund-splash {
+    background-image: url("../images/mutual-fund-splash.jpg");
+    background-position-y: bottom; }
+  .full-header.insurance-splash {
+    background-image: url("../images/insurance-splash.jpg"); }
 
 .feature-image {
   width: 150px;
@@ -6810,7 +6821,8 @@ img {
 
 .gm-table {
   color: #fff;
-  flex-grow: 1; }
+  flex-grow: 1;
+  display: flex; }
   .gm-table td {
     padding: 20px; }
 
@@ -6853,5 +6865,8 @@ img {
   height: 150px;
   margin-bottom: 1rem;
   margin-top: 1rem; }
+
+#contact-form .error {
+  color: #ff4136; }
 
 /*# sourceMappingURL=main.css.map */

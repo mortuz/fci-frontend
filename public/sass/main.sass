@@ -22,6 +22,17 @@ p
   background: url('../images/splash.jpg') no-repeat center center
   background-size: cover
   height: 400px
+  &.about-splash
+    background-image: url('../images/about-splash.jpg')
+  &.services-splash
+    background-image: url('../images/services-splash.jpg')
+  &.contact-splash
+    background-image: url('../images/contact-splash.jpg')
+  &.mutual-fund-splash
+    background-image: url('../images/mutual-fund-splash.jpg')
+    background-position-y: bottom
+  &.insurance-splash
+    background-image: url('../images/insurance-splash.jpg')
 
 .feature-image
   width: 150px
@@ -126,6 +137,7 @@ img
 .gm-table
   color: #fff
   flex-grow: 1
+  display: flex
   td
     padding: 20px
 .gm-table.odd
@@ -166,3 +178,7 @@ img
   margin-bottom: 1rem
   margin-top: 1rem
   // transform: scale(0.8)
+
+#contact-form
+  .error
+    color: map-get($theme-colors, 'danger')

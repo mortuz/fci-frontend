@@ -196,7 +196,7 @@
 
   var fetchLiveData = function() {
     $.ajax({
-      url: "https://cors-anywhere.herokuapp.com/http://www.moneycontrol.com/stocks/marketstats/bse-mostactive-stocks/all-companies-97/",
+      url: "https://cors-anywhere.herokuapp.com/https://www.moneycontrol.com/stocks/marketstats/bse-mostactive-stocks/all-companies-97/",
       success: function(data) {
         var $table = $(data).find('.bsr_table').find('table').first();
         var tbody = $table.find('tbody');
@@ -256,5 +256,99 @@
   topGainers();
   fetchNIFTY();
   fetchSENSEX();
+
+  $('#contact-form').validate({
+    // debug: true,
+    rules: {
+      name: {
+        required: true,
+        minlength: 3
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      phone: {
+        required: true,
+        digits: true,
+        minlength: 10
+      },
+      message: {
+        required: true,
+        minlength: 5
+      }
+    },
+    messages: {
+      name: {
+        required: "Please enter your name",
+        minlength: "Minimum 3 characters"
+      },
+      email: {
+        required: "Email address is required",
+        email: "Invalid email address"
+      },
+      phone: {
+        required: "Phone number is required",
+        digits: "Invalid phone number",
+        minlength: "Phone number is too short"
+      },
+      message: {
+        required: "Message is required",
+        minlength: "Message is very short"
+      }
+    },
+    submitHandler: function (form) {
+      $(form).ajaxSubmit({ 
+        // url: '/fci/public/send',
+        url: '/send',
+        type: 'post',
+        dataType: 'json',
+        success: function(data) {
+          // console.log(data);
+          $('#feedback').html('Thanks! We will contact you soon.')
+          $("#contact-form").find("input[type=text],input[type=email], textarea").val("");
+        },
+        error: function(err){
+          $('#err-feedback').html('Sorry! we are unable to submit your form at this moment.')
+          $("#contact-form").find("input[type=text],input[type=email], textarea").val("");
+        }
+       });
+    }
+  });
+
+  $('#reg-btn').on('click', function(e){
+    var email = $('#registration-email').val();
+    console.log(email);
+
+    if (isEmailValid(email)) {
+      $.ajax({
+        // url: '/fci/public/subscribe',
+        url: '/subscribe',
+        data: {email: email},
+        type: 'post',
+        success: function (data) {
+          console.log(data);
+          $('#feedback').html('<p class="text-success">Thanks you for subscribing.</p>')
+          $("#registration-email").val("");
+        },
+        error: function (err) {
+          console.log(err);
+          $('#feedback').html('<p class="text-danger">Error! Try again letter.</p>')
+          $("#registration-email").val("");
+        }
+      });
+    } else {
+      $('#feedback').html('<p class="text-danger">Invalid email address.</p>')
+      $("#registeration-form").find("input[type=email]").val("");
+    }
+    
+
+  })
+
+
+  function isEmailValid(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
 
 })(jQuery)

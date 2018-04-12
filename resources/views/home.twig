@@ -53,7 +53,7 @@
     </div>
   </section>
 
-  <section class="section py-5" id="ticker">
+  <section class="section py-5 d-none d-md-block" id="ticker">
     <div class="container">
       <div class="row">
       <div class="col-md-12 text-center"><h5 class="text-uppercase text-primary">most active stocks</h5></div>
@@ -206,12 +206,17 @@
           <p class="text-primary text-uppercase lead">The  key to great investments is here</p>
           <p>Need more details? Register here.</p>
 
-          <div class="input-group register-group">
-            <input type="text" name="search" class="form-control search" id="search" placeholder="Enter you email address">
-            <div class="input-group-append">
-              <span class="input-group-text">REGISTER</span>
+          <form action="" id="registeration-form">
+            <div class="input-group register-group">
+                <input type="text" name="email" class="form-control search" id="registration-email" placeholder="Enter you email address">
+                <div class="input-group-append">
+                  <span type="submit" id="reg-btn" class="input-group-text">REGISTER</span>
+                </div>
+              
+              
             </div>
-          </div>
+            <div id="feedback" class="text-left"></div>
+          </form>
 
         </div>
       </div>
