@@ -57,7 +57,6 @@
     $.ajax({
       url: 'https://cors-anywhere.herokuapp.com/https://www.nseindia.com/live_market/dynaContent/live_analysis/losers/niftyLosers1.json',
       success: function (data) {
-        console.log(JSON.parse(data))
         data = JSON.parse(data);
         var html = '';
         for (let i = 0; i < 5; i++) {
@@ -247,7 +246,7 @@
       url: url,
       success: function (data) {
         data = JSON.parse(data)[2].data;
-        console.log(data);
+        // console.log(data);
         var html = '';
 
         data.forEach(function (item) {
@@ -390,7 +389,6 @@
       })
     })
 
-    console.log(results);
 
     if(searchVal) {
       var html = '';
