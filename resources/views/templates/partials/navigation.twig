@@ -38,12 +38,15 @@
         </ul>
 
         <div class="input-group search-group">
-          <input type="text" name="search" class="form-control search" id="search" placeholder="What are you looking for?">
+          <input type="text" name="search" class="form-control search" id="search" autocomplete="off" placeholder="What are you looking for?">
           <div class="input-group-append">
             <span class="input-group-text"><i class="fa fa-search"></i></span>
           </div>
         </div>
-        
+
+        <div id="search-results">
+          <ul class="list-group"></ul>        
+        </div>        
 
       </div> <!--/.col-md-5-->
 
@@ -135,6 +138,8 @@
 {# bottom nav bar #}
 <nav class="navbar fixed-bottom navbar-light bg-light-grey d-none d-md-block">
   <ul class="navbar-nav live-nav js-bottom-nav">
+    <li class="nav-item text-center bse"></li>
+    <li class="nav-item text-center nifty"></li>
   </ul>
 </nav>
 

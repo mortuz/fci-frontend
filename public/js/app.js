@@ -18,7 +18,7 @@
       $('.gain-loss-status').addClass('text-danger').html('Loss');
       $('.gain-loss-status').removeClass('text-success');
     }
-    console.log(action)
+    // console.log(action)
   });
   
   var topGainers = function () {
@@ -27,7 +27,7 @@
     $.ajax({
       url: 'https://cors-anywhere.herokuapp.com/https://www.nseindia.com/live_market/dynaContent/live_analysis/gainers/niftyGainers1.json',
       success: function (data) {
-        console.log(JSON.parse(data))
+        // console.log(JSON.parse(data))
         data = JSON.parse(data);
         var html = '';
         for (let i = 0; i < 5; i++) {
@@ -63,12 +63,12 @@
         for (let i = 0; i < 5; i++) {
           const stock = data.data[i];
           html += `
-        <tr>
-          <td>${stock.symbol}</td>
-          <td>${stock.ltp}</td>
-          <td class="text-danger">${stock.netPrice}</td>
-        </tr>
-        `;
+            <tr>
+              <td>${stock.symbol}</td>
+              <td>${stock.ltp}</td>
+              <td class="text-danger">${stock.netPrice}</td>
+            </tr>
+          `;
         }
 
         $('.loss-gain').html(html);
@@ -158,13 +158,12 @@
         console.log(data);
 
         var html = `
-          <li class="nav-item text-center"><span class="text-primary">${data.company}</span> <br>
+          <span class="text-primary">${data.company}</span> <br>
             <span>${data.pricecurrent}</span> <i class="fa fa-caret-${data.pricechange.indexOf('-') === -1 ? "up text-success" : "down text-danger"}"></i>
             <span class="${data.pricechange.indexOf('-') === -1 ? "text-success" : "text-danger"}">${data.pricechange} (${data.PERCCHANGE}%)</span>
-          </li>
         `;
         
-        $('.js-bottom-nav').append(html);
+        $('.nifty').html(html);
       },
       error: function(err) {
         console.error('NIFTY fetch Err!', err);
@@ -180,13 +179,13 @@
         console.log(data);
 
         var html = `
-          <li class="nav-item text-center"><span class="text-primary">${data.company}</span> <br>
+          <span class="text-primary">${data.company}</span> <br>
             <span>${data.pricecurrent}</span> <i class="fa fa-caret-${data.pricechange.indexOf('-') === -1 ? "up text-success" : "down text-danger"}"></i>
             <span class="${data.pricechange.indexOf('-') === -1 ? "text-success" : "text-danger"}">${data.pricechange} (${data.PERCCHANGE}%)</span>
-          </li>
+          
         `;
 
-        $('.js-bottom-nav').append(html);
+        $('.bse').html(html);
       },
       error: function (err) {
         console.error('NIFTY fetch Err!', err);
@@ -240,6 +239,35 @@
       }
     })
   }
+  var webTicker = function () {
+    let url = "https://cors-anywhere.herokuapp.com/http://terminal.moneycontrol.com/data.php?action=initial-settings";
+
+    $.ajax({
+      url: url,
+      success: function (data) {
+        data = JSON.parse(data)[2].data;
+        console.log(data);
+        var html = '';
+
+        data.forEach(function (item) {
+          item = item[0]
+          html += `
+            
+            <span>${item.shortname} </span><span class="text-dark larger">${item.lastvalue} </span> <i class="fa fa-caret-${item.change.indexOf('-') === -1 ? "up text-success" : "down text-danger"}"></i>
+            <span class="${item.change.indexOf('-') === -1 ? "text-success" : "text-danger"}">${item.change} %</span> | 
+          `;
+        })
+
+        $('.js-bottom-nav').append('<marquee>' + html + '</marquee>');
+      },
+      error: function (err) {
+        console.log(err);
+      }
+    })
+  }
+
+
+  webTicker();
 
   // run functions every second
   setInterval(function() {
@@ -318,7 +346,6 @@
 
   $('#reg-btn').on('click', function(e){
     var email = $('#registration-email').val();
-    console.log(email);
 
     if (isEmailValid(email)) {
       $.ajax({
@@ -327,12 +354,10 @@
         data: {email: email},
         type: 'post',
         success: function (data) {
-          console.log(data);
           $('#feedback').html('<p class="text-success">Thanks you for subscribing.</p>')
           $("#registration-email").val("");
         },
         error: function (err) {
-          console.log(err);
           $('#feedback').html('<p class="text-danger">Error! Try again letter.</p>')
           $("#registration-email").val("");
         }
@@ -345,10 +370,78 @@
 
   })
 
+  $('#search').on('keyup', function(e) {
+    var searchVal = $(this).val()
+    // console.log('Search val', )
+    var results = [];
+    var keys = Object.keys(searchTerms);
+    
+
+    keys.forEach(function (key) {
+      var items = searchTerms[key];
+      items.forEach(function(item) {
+        if(item.indexOf(searchVal) > -1) {
+          results.push({
+            key: item,
+            url: '/' + key
+          });
+        }
+      })
+    })
+
+    console.log(results);
+
+    if(searchVal) {
+      var html = '';
+      results.forEach(function(result) {
+        html += '<a href="'+ result.url +'" class="list-group-item list-group-item-action">' + result.key + '</a>'
+      })
+      $('#search-results').find('.list-group').html(html)
+      
+
+    } else {
+      $('#search-results').find('.list-group').html('')
+    }
+  })
+
 
   function isEmailValid(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+  }
+
+  var searchTerms = {
+    home: [
+      "news",
+      "stocks",
+      "top gainer",
+      "top loser",
+      "news letter"
+    ],
+    about: [
+      "our mission",
+      "our vision",
+      "our team",
+    ],
+    contact: [
+      "contact",
+      "phone",
+      "email",
+      "address",
+    ],
+    services: [
+      "wealth management",
+      "portfolio management",
+      "financial planning",
+      "tax planning",
+      "stock trading"
+    ],
+    "mutual-fund": [
+      "mutual fund",
+    ],
+    insurance: [
+      "insurance"
+    ]
   }
 
 })(jQuery)
