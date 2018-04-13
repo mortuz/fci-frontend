@@ -26,4 +26,6 @@ $container['view'] = function ($container) {
   return $view;
 };
 
+$app->add(new \App\Middleware\HttpsMiddleware($container));
+
 require __DIR__ . '/../app/routes.php';

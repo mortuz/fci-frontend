@@ -197,6 +197,7 @@
     $.ajax({
       url: "https://cors-anywhere.herokuapp.com/https://www.moneycontrol.com/stocks/marketstats/bse-mostactive-stocks/all-companies-97/",
       success: function(data) {
+        data = data.split('http://').join('https://');
         var $table = $(data).find('.bsr_table').find('table').first();
         var tbody = $table.find('tbody');
         var rows = tbody.find('tr');
